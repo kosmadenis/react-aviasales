@@ -1,0 +1,18 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+.list {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: sizes.$gap;
+}
+
+.item {
+  box-sizing: border-box;
+}

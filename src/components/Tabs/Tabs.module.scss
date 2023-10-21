@@ -1,0 +1,86 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+.list {
+  box-sizing: border-box;
+  margin: 0;
+  list-style: none;
+
+  background-color: colors.$border;
+  border-radius: sizes.$border-radius;
+  padding: sizes.$border-width;
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: sizes.$border-width;
+}
+
+.item {
+  flex: 1 0 0;
+
+  &:first-child > .label {
+    border-start-start-radius: sizes.$border-radius - 1px;
+    border-end-start-radius: sizes.$border-radius - 1px;
+  }
+
+  &:last-child > .label {
+    border-start-end-radius: sizes.$border-radius - 1px;
+    border-end-end-radius: sizes.$border-radius - 1px;
+  }
+}
+
+.label {
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 18px 12px;
+
+  background-color: colors.$card;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: colors.$card-hover;
+  }
+
+  &:active {
+    background-color: colors.$card-active;
+  }
+}
+
+.text {
+  writing-mode: initial;
+
+  font-size: 12px;
+  line-height: 100%;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.input {
+  appearance: none;
+  position: absolute;
+}
+
+.input:checked + .label {
+  margin: -(sizes.$border-width);
+  width: calc(100% + sizes.$border-width * 2);
+  height: calc(100% + sizes.$border-width * 2);
+
+  background-color: colors.$primary;
+  color: colors.$text-alt;
+
+  &:hover {
+    background-color: colors.$primary-hover;
+  }
+
+  &:active {
+    background-color: colors.$primary-active;
+  }
+}

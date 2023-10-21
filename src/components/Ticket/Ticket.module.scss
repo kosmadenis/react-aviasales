@@ -1,0 +1,34 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+.ticket {
+  border-radius: sizes.$border-radius;
+  background-color: colors.$card;
+  padding: sizes.$gap;
+  box-shadow: shadows.$card;
+}
+
+.price {
+  color: colors.$primary;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.logo {
+  float: right;
+  max-height: 36px;
+  max-width: 110px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.segments {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

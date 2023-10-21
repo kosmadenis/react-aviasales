@@ -1,0 +1,84 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+$padding: sizes.$gap;
+
+.layout {
+  padding: $padding;
+
+  border-radius: sizes.$border-radius;
+  background-color: colors.$card;
+  box-shadow: shadows.$card;
+}
+
+.title {
+  cursor: default;
+
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.label {
+  cursor: pointer;
+
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-left: -$padding;
+  margin-right: -$padding;
+  padding-left: $padding;
+  padding-right: $padding;
+
+  &:hover {
+    background-color: colors.$card-hover;
+  }
+}
+
+.text {
+  font-size: 13px;
+  display: block;
+}
+
+.checkbox {
+  cursor: unset;
+
+  margin: 0;
+  appearance: none;
+
+  height: 20px;
+  width: 20px;
+
+  box-sizing: border-box;
+
+  border: 1px solid colors.$primary-inactive;
+  border-radius: 2px;
+
+  &:checked {
+    border-color: colors.$primary;
+
+    background: no-repeat center/100% url('./checkbox-active.svg');
+  }
+
+  &:active {
+    border-color: colors.$primary-active;
+  }
+}
+
+.item {
+  color: black;
+}

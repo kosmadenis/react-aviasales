@@ -1,0 +1,49 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+.segment {
+  display: grid;
+  grid-template-areas:
+    'route-path duration-title transfers-title'
+    'route-time duration-time  transfers-stops';
+}
+
+.title {
+  color: colors.$text-gray;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.route-path {
+  grid-area: route-path;
+}
+
+.duration-title {
+  grid-area: duration-title;
+}
+
+.transfers-title {
+  grid-area: transfers-title;
+}
+
+.route-time {
+  grid-area: route-time;
+}
+
+.duration-time {
+  grid-area: duration-time;
+}
+
+.transfers-stops {
+  grid-area: transfers-stops;
+}

@@ -1,0 +1,28 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+.button {
+  appearance: none;
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  border-radius: sizes.$border-radius;
+  background-color: colors.$primary;
+  color: colors.$text-alt;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: colors.$primary-hover;
+  }
+
+  &:active {
+    background-color: colors.$primary-active;
+  }
+}

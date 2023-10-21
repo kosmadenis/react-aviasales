@@ -1,0 +1,70 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+.layout {
+  padding: sizes.$gap;
+
+  max-width: sizes.$screen-md - sizes.$gap;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+
+  gap: sizes.$gap;
+
+  display: grid;
+  grid-template-areas:
+    'logo      logo '
+    'transfers sort '
+    'transfers cards'
+    'transfers more ';
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 150px 50px 1fr 50px;
+
+  @media screen and (max-width: sizes.$screen-md) {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+
+    grid-template-areas:
+      'logo logo'
+      'transfers sort'
+      'cards cards'
+      'more more';
+
+    & > .sort {
+      writing-mode: vertical-lr;
+    }
+  }
+
+  @media screen and (max-width: sizes.$screen-sm) {
+    grid-template-areas:
+      'logo'
+      'transfers'
+      'sort'
+      'cards'
+      'more';
+  }
+}
+
+.logo {
+  grid-area: logo;
+
+  margin: auto;
+}
+
+.transfers {
+  grid-area: transfers;
+}
+
+.sort {
+  grid-area: sort;
+}
+
+.cards {
+  grid-area: cards;
+}
+
+.more {
+  height: 50px;
+  grid-area: more;
+}

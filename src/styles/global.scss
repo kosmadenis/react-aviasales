@@ -1,0 +1,14 @@
+@use './fonts/open-sans';
+
+@use './vars/colors';
+
+:root {
+  font-family: 'Open Sans';
+  color: colors.$text;
+}
+
+body {
+  background: colors.$bg;
+  margin: 0;
+  padding: 0;
+}

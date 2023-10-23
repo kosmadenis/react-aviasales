@@ -16,8 +16,8 @@
   grid-template-areas:
     'logo      logo '
     'transfers sort '
-    'transfers cards'
-    'transfers more ';
+    'transfers tickets'
+    'transfers tickets';
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 150px 50px 1fr 50px;
 
@@ -26,10 +26,9 @@
     grid-template-rows: auto;
 
     grid-template-areas:
-      'logo logo'
+      'logo      logo'
       'transfers sort'
-      'cards cards'
-      'more more';
+      'tickets   tickets';
 
     & > .sort {
       writing-mode: vertical-lr;
@@ -41,8 +40,7 @@
       'logo'
       'transfers'
       'sort'
-      'cards'
-      'more';
+      'tickets';
   }
 }
 
@@ -54,17 +52,14 @@
 
 .transfers {
   grid-area: transfers;
+
+  margin-bottom: auto;
 }
 
 .sort {
   grid-area: sort;
 }
 
-.cards {
-  grid-area: cards;
-}
-
-.more {
-  height: 50px;
-  grid-area: more;
+.tickets {
+  grid-area: tickets;
 }

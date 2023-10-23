@@ -5,12 +5,17 @@ import classes from './Button.module.scss'
 
 interface Props {
   className?: string
+  disabled?: boolean
   text: string
 }
 
-const Button: React.FC<Props> = ({ className, text }) => {
+const Button: React.FC<Props> = ({ className, disabled, text }) => {
   return (
-    <button type="button" className={classNames(className, classes.button)}>
+    <button
+      type="button"
+      disabled={disabled}
+      className={classNames(className, classes.button)}
+    >
       {text}
     </button>
   )
@@ -18,6 +23,7 @@ const Button: React.FC<Props> = ({ className, text }) => {
 
 Button.defaultProps = {
   className: '',
+  disabled: false,
 }
 
 export default Button

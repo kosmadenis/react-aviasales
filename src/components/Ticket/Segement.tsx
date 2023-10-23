@@ -2,8 +2,6 @@ import React from 'react'
 import classNames from 'classnames'
 import { addMinutes, format } from 'date-fns'
 
-import type { SegmentData } from '../../model/types'
-
 import classes from './Segment.module.scss'
 
 function getTransferWordForm(n: number) {
@@ -53,7 +51,7 @@ function formatDataFromTo(start: Date, totalMinutes: number) {
 
 interface Props {
   className?: string
-  data: SegmentData
+  data: Model.Segment
 }
 
 const Segment: React.FC<Props> = ({ className, data }) => {

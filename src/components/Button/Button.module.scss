@@ -25,4 +25,9 @@
   &:active {
     background-color: colors.$primary-active;
   }
+
+  &:disabled {
+    background-color: colors.$text-gray;
+    cursor: default;
+  }
 }

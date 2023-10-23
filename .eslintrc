@@ -42,8 +42,10 @@
     }
   },
   "rules": {
-    "import/prefer-default-export": "off",
     "no-restricted-exports": "off",
+    "no-param-reassign": "off",
+    "@typescript-eslint/default-param-last": "off",
+    "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
     "jsx-a11y/label-has-associated-control": "off",
 

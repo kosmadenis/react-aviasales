@@ -68,7 +68,7 @@ const Segment: React.FC<Props> = ({ className, data }) => {
       </span>
       {/* --- */}
       <span className={classNames(classes.description, classes['route-time'])}>
-        {formatDataFromTo(data.date, data.duration)}
+        {formatDataFromTo(new Date(data.date), data.duration)}
       </span>
       <span
         className={classNames(classes.description, classes['duration-time'])}

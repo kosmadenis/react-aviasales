@@ -22,3 +22,16 @@
   margin-top: sizes.$gap;
   height: 50px;
 }
+
+.loader-box {
+  margin-bottom: 20px;
+}
+
+.empty-list-message {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: colors.$card;
+  border-radius: sizes.$border-radius;
+  border: 1px solid colors.$border;
+}

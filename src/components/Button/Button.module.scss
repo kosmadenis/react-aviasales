@@ -2,6 +2,8 @@
 @use '../../styles/vars/colors';
 @use '../../styles/vars/shadows';
 
+@use '../../styles/mixins/focus-outline';
+
 .button {
   appearance: none;
   background: none;
@@ -26,8 +28,11 @@
     background-color: colors.$primary-active;
   }
 
-  &:disabled {
-    background-color: colors.$text-gray;
-    cursor: default;
+  &:focus-visible {
+    @include focus-outline.default;
   }
+}
+
+.spinner {
+  height: 80%;
 }

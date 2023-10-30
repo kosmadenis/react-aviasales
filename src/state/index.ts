@@ -1,20 +1,38 @@
 import { combineReducers } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 
-import transfersFilterReducer from './slices/transfers-filter'
-import ticketSortReducer from './slices/ticket-sort'
-import ticketListReducer from './slices/ticket-list'
+import type AviasalesApi from '../services/aviasales-api'
+
+import searchParamsReducer from './slices/search-params'
+import searchDataReducer from './slices/search-data'
 
 const rootReducer = combineReducers({
-  transfersFilter: transfersFilterReducer,
-  ticketSort: ticketSortReducer,
-  ticketList: ticketListReducer,
+  searchParams: searchParamsReducer,
+  searchData: searchDataReducer,
 })
-
-const store = configureStore({ reducer: rootReducer })
 
 export type RootState = ReturnType<typeof rootReducer>
 
-export type AppDispatch = typeof store.dispatch
+export interface ThunkArg {
+  api: AviasalesApi
+}
 
-export default store
+export function createStore(thunkArg: ThunkArg) {
+  return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: thunkArg,
+        },
+      }),
+  })
+}
+
+export type AppDispatch = ReturnType<typeof createStore>['dispatch']
+
+export type ThunkFn = (
+  dispatch: AppDispatch,
+  getState: () => RootState,
+  arg: ThunkArg
+) => void

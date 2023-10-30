@@ -1,0 +1,24 @@
+@use '../../styles/vars/sizes';
+@use '../../styles/vars/colors';
+@use '../../styles/vars/shadows';
+
+.svg {
+  height: 4px;
+}
+
+.line {
+  stroke-width: 4;
+  stroke: colors.$primary;
+
+  animation: dashed-line-side-scroll 1.5s linear infinite both;
+}
+
+@keyframes dashed-line-side-scroll {
+  from {
+    stroke-dashoffset: 24;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}

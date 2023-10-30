@@ -2,6 +2,8 @@
 @use '../../styles/vars/colors';
 @use '../../styles/vars/shadows';
 
+@use '../../styles/mixins/focus-outline';
+
 $padding: sizes.$gap;
 
 .layout {
@@ -76,6 +78,10 @@ $padding: sizes.$gap;
 
   &:active {
     border-color: colors.$primary-active;
+  }
+
+  &:focus-visible {
+    @include focus-outline.default;
   }
 }
 

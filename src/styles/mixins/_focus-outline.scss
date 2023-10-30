@@ -1,0 +1,8 @@
+@use '../vars/sizes';
+@use '../vars/colors';
+@use '../vars/shadows';
+
+@mixin default {
+  outline: 2px solid colors.$primary-active;
+  outline-offset: 2px;
+}

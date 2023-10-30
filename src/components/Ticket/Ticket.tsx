@@ -3,7 +3,6 @@ import classNames from 'classnames'
 
 import classes from './Ticket.module.scss'
 import Segment from './Segement'
-import logo from './s7-logo.png'
 
 interface Props {
   className?: string
@@ -11,13 +10,18 @@ interface Props {
 }
 
 const Ticket: React.FC<Props> = ({ className, data }) => {
-  const segments = data.segments.map((segment) => <Segment data={segment} />)
+  const segments = data.segments.map((segment) => (
+    <Segment key={segment.id} data={segment} />
+  ))
+
   const price = data.price.toLocaleString('ru-RU')
+
+  const logoSrc = `https://pics.avs.io/99/36/${data.carrier}.png`
 
   return (
     <div className={classNames(className, classes.ticket)}>
       <span className={classes.price}>{price} Р</span>
-      <img className={classes.logo} src={logo} alt="Carrier logo" />
+      <img className={classes.logo} src={logoSrc} alt="Carrier logo" />
       <div className={classes.clearfix} />
       <div className={classes.segments}>{segments}</div>
     </div>

@@ -2,13 +2,7 @@ import { connect } from 'react-redux'
 
 import CheckboxSet from '../CheckboxSet'
 import type { AppDispatch, RootState } from '../../state'
-import {
-  setAll,
-  setNone,
-  setOne,
-  setThree,
-  setTwo,
-} from '../../state/slices/transfers-filter'
+import { setTransfers } from '../../state/slices/search-params'
 
 const TITLE = 'Количество пересадок'
 
@@ -39,11 +33,11 @@ const mapStateToProps = (state: RootState) => ({
   title: TITLE,
   options: OPTIONS,
   values: [
-    state.transfersFilter.all,
-    state.transfersFilter.none,
-    state.transfersFilter.one,
-    state.transfersFilter.two,
-    state.transfersFilter.three,
+    state.searchParams.transfers.all,
+    state.searchParams.transfers.none,
+    state.searchParams.transfers.one,
+    state.searchParams.transfers.two,
+    state.searchParams.transfers.three,
   ],
 })
 
@@ -51,19 +45,19 @@ const mapDispatchToProps = (dispatch: AppDispatch) => ({
   onChange: (id: number, value: boolean) => {
     switch (id) {
       case 0:
-        dispatch(setAll(value))
+        dispatch(setTransfers({ key: 'all', value }))
         break
       case 1:
-        dispatch(setNone(value))
+        dispatch(setTransfers({ key: 'none', value }))
         break
       case 2:
-        dispatch(setOne(value))
+        dispatch(setTransfers({ key: 'one', value }))
         break
       case 3:
-        dispatch(setTwo(value))
+        dispatch(setTransfers({ key: 'two', value }))
         break
       case 4:
-        dispatch(setThree(value))
+        dispatch(setTransfers({ key: 'three', value }))
         break
       default:
     }

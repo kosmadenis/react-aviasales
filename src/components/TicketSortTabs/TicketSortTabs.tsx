@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import Tabs from '../Tabs'
 import type { AppDispatch, RootState } from '../../state'
-import { set, type TicketSortState } from '../../state/slices/ticket-sort'
+import { setSort, type SortValue } from '../../state/slices/search-params'
 
 const OPTIONS = [
   {
@@ -22,8 +22,8 @@ const OPTIONS = [
   },
 ]
 
-function getIdForStateValue(stateValue: TicketSortState) {
-  switch (stateValue) {
+function getIdForValue(value: SortValue) {
+  switch (value) {
     case 'cheapest':
       return 0
     case 'fastest':
@@ -37,20 +37,20 @@ function getIdForStateValue(stateValue: TicketSortState) {
 
 const mapStateToProps = (state: RootState) => ({
   options: OPTIONS,
-  value: getIdForStateValue(state.ticketSort),
+  value: getIdForValue(state.searchParams.sort),
 })
 
 const mapDispatchToProps = (dispatch: AppDispatch) => ({
   onChange: (id: number) => {
     switch (id) {
       case 0:
-        dispatch(set('cheapest'))
+        dispatch(setSort('cheapest'))
         break
       case 1:
-        dispatch(set('fastest'))
+        dispatch(setSort('fastest'))
         break
       case 2:
-        dispatch(set('optimal'))
+        dispatch(setSort('optimal'))
         break
       default:
     }

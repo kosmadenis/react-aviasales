@@ -4,7 +4,8 @@ import { Provider, type ProviderProps } from 'react-redux'
 
 import App from './components/App'
 import './styles/global.scss'
-import store from './state'
+import { createStore } from './state'
+import AviasalesApi from './services/aviasales-api'
 
 const rootElement = document.getElementById('root')
 
@@ -13,6 +14,8 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement)
+
+const store = createStore({ api: new AviasalesApi() })
 
 root.render(
   React.createElement(

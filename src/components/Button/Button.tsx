@@ -1,29 +1,33 @@
 import React from 'react'
 import classNames from 'classnames'
 
+import Spinner from '../Spinner'
+
 import classes from './Button.module.scss'
 
 interface Props {
   className?: string
-  disabled?: boolean
+  loading?: boolean
+  onClick?: () => void
   text: string
 }
 
-const Button: React.FC<Props> = ({ className, disabled, text }) => {
+const Button: React.FC<Props> = ({ className, loading, onClick, text }) => {
   return (
     <button
       type="button"
-      disabled={disabled}
+      onClick={onClick}
       className={classNames(className, classes.button)}
     >
-      {text}
+      {loading ? <Spinner className={classes.spinner} /> : text}
     </button>
   )
 }
 
 Button.defaultProps = {
   className: '',
-  disabled: false,
+  loading: false,
+  onClick: () => {},
 }
 
 export default Button

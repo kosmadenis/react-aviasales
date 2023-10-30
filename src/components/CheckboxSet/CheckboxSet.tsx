@@ -4,15 +4,10 @@ import { zip } from 'lodash-es'
 
 import classes from './CheckboxSet.module.scss'
 
-interface Option {
-  id: number
-  text: string
-}
-
 interface Props {
   className?: string
   title: string
-  options: Option[]
+  options: { id: number; text: string }[]
   values: boolean[]
   onChange: (id: number, value: boolean) => void
 }

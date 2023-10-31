@@ -57,29 +57,26 @@ interface Props {
 const Segment: React.FC<Props> = ({ className, data }) => {
   return (
     <div className={classNames(className, classes.segment)}>
-      <span className={classNames(classes.title, classes['route-path'])}>
-        {data.origin} - {data.destination}
-      </span>
-      <span className={classNames(classes.title, classes['duration-title'])}>
-        В пути
-      </span>
-      <span className={classNames(classes.title, classes['transfers-title'])}>
-        {data.stops.length} {getTransferWordForm(data.stops.length)}
-      </span>
-      {/* --- */}
-      <span className={classNames(classes.description, classes['route-time'])}>
-        {formatDataFromTo(new Date(data.date), data.duration)}
-      </span>
-      <span
-        className={classNames(classes.description, classes['duration-time'])}
-      >
-        {formatDuration(data.duration)}
-      </span>
-      <span
-        className={classNames(classes.description, classes['transfers-stops'])}
-      >
-        {data.stops.join(', ')}
-      </span>
+      <div className={classes.field}>
+        <span className={classes.title}>
+          {data.origin} - {data.destination}
+        </span>
+        <span className={classes.description}>
+          {formatDataFromTo(new Date(data.date), data.duration)}
+        </span>
+      </div>
+      <div className={classes.field}>
+        <span className={classes.title}>В пути</span>
+        <span className={classes.description}>
+          {formatDuration(data.duration)}
+        </span>
+      </div>
+      <div className={classes.field}>
+        <span className={classes.title}>
+          {data.stops.length} {getTransferWordForm(data.stops.length)}
+        </span>
+        <span className={classes.description}>{data.stops.join(', ')}</span>
+      </div>
     </div>
   )
 }

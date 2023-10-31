@@ -3,10 +3,15 @@
 @use '../../styles/vars/shadows';
 
 .segment {
-  display: grid;
-  grid-template-areas:
-    'route-path duration-title transfers-title'
-    'route-time duration-time  transfers-stops';
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
 }
 
 .title {
@@ -22,28 +27,4 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
-}
-
-.route-path {
-  grid-area: route-path;
-}
-
-.duration-title {
-  grid-area: duration-title;
-}
-
-.transfers-title {
-  grid-area: transfers-title;
-}
-
-.route-time {
-  grid-area: route-time;
-}
-
-.duration-time {
-  grid-area: duration-time;
-}
-
-.transfers-stops {
-  grid-area: transfers-stops;
 }
